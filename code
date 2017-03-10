@@ -1,0 +1,13 @@
+var emails = "";
+$(".txt").find("a.hdrlnk").map(function(i, el) { return el })
+.each(function(i, el) { 
+  $.get(el.href, function(body) { 
+    $.get( $(body).find("#replylink")[0].href, function(linkbody) {
+          var email = $(linkbody)..find('a[href^="mailto:"]')[0].innerText + ',';
+          emails += email;
+    })
+  })
+})
+setTimeout(function() { 
+  console.log('emails: ' + emails);
+}, 5000)
